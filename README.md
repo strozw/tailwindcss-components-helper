@@ -36,7 +36,11 @@ export default {
   content: [
     "./index.html",
     "./src/App.tsx",
-    "./src/**/*.{js,ts,jsx,tsx}",], theme: { extend: {}, },
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ], 
+  theme: { 
+    extend: {}, 
+  },
   plugins: [
     plugin(({ theme, addComponents, matchComponents }) => {
       addComponents({
