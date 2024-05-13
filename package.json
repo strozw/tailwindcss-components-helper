@@ -13,6 +13,7 @@
 	},
 	"scripts": {
 		"test": "",
+		"check": "tsc --noEmit",
 		"fix": "pnpm biome format --write .",
 		"build": "tsup src/index.ts --dts --format esm,cjs"
 	},
