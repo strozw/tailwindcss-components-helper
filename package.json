@@ -4,6 +4,11 @@
   "description": "",
   "type": "module",
   "files": ["dist", "package.json"],
+  "homepage": "https://github.com/strozw/tailwindcss-components-helper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strozw/tailwindcss-components-helper"
+  },
   "exports": {
     ".": {
       "require": "./dist/index.cjs",
