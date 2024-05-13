@@ -8,12 +8,12 @@ export type CSSPropertiesHyphen = CSS.PropertiesHyphen<number | (string & {})>;
 export type CSSPseudos = { [K in CSS.Pseudos]?: StyleObject };
 
 export interface StyleObject
-	extends CSSProperties,
-		CSSPropertiesHyphen,
-		CSSPseudos {
-	[key: string]: StyleObject | string | number | undefined;
+  extends CSSProperties,
+    CSSPropertiesHyphen,
+    CSSPseudos {
+  [key: string]: StyleObject | string | number | undefined;
 }
 
 export function defineComponent(component: StyleObject) {
-	return component as CSSRuleObject;
+  return component as CSSRuleObject;
 }
