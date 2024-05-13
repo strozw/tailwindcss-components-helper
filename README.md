@@ -8,6 +8,7 @@ This package was created to improve the development experience by enabling code 
 It was also created to support the ideas defined in the tailwindcss description below.
 https://github.com/tailwindlabs/tailwindcss/discussions/13673
 
+
 ## Install
 
 ```
@@ -26,21 +27,24 @@ pnpm add -D tailwindcss-components-helper
 If you use it in a `"type": "module"` project, it will look like this:
 
 
-```
+```ts
 import plugin from 'tailwindcss/plugin'
 import { defineComponent as typed } from 'tailwindcss-components-helper'
 
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: [],
+	content: [
+		"./index.html",
+		"./src/App.tsx",
+		"./src/**/*.{js,ts,jsx,tsx}",
+	],
 	theme: {
 		extend: {},
-
 	},
 	plugins: [
-		plugin(({ theme, addComponents, matchComponents }) => {
+		plugin(function ({ theme, addComponents, matchComponents }) {
 			addComponents({
-				testAddComponents: typed({
+				'.test-add': typed({
 					display: 'block',
 
 					// camelCase enabled
@@ -48,21 +52,31 @@ export default {
 
 					// kebab-case enabled
 					'margin-top': '20px',
+
+					backgroundColor: 'red'
 				})
 			})
 
-			matchComponents(
-				value => ({
-					testMatchComponents: typed({
-						display: 'block',
+			matchComponents({
+				'test-match': value => [
+          typed({
+            display: 'block',
 
-						// camelCase enabled
-						marginTop: value,
+            // camelCase enabled
+            marginTop: value,
 
-						// kebab-case enabled
-						'margin-top': value,
-					})
-				}),
+            // kebab-case enabled
+            'margin-top': value,
+
+            color: 'blue'
+          }), 
+          typed({
+            '::hover': {
+            color: 'green'
+            }
+          })
+        ]
+			},
 				{ values: theme('space') }
 			)
 		})
