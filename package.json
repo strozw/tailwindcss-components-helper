@@ -1,0 +1,35 @@
+{
+	"name": "tailwindcss-component-helper",
+	"version": "0.1.0",
+	"description": "",
+	"type": "module",
+	"files": ["dist", "package.json"],
+	"exports": {
+		".": {
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.mjs",
+			"types": "./dist/index.d.ts"
+		}
+	},
+	"scripts": {
+		"test": "",
+		"fix": "pnpm biome format --write .",
+		"build": "tsup src/index.ts --dts --format esm,cjs"
+	},
+	"keywords": ["tailwindcss", "plugin", "component", "types"],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@biomejs/biome": "^1.7.3",
+		"@tsconfig/recommended": "^1.0.6",
+		"lefthook": "^1.6.10",
+		"tsup": "^8.0.2",
+		"typescript": "^5.4.5"
+	},
+	"peerDependencies": {
+		"tailwindcss": "^3"
+	},
+	"dependencies": {
+		"csstype": "^3.1.3"
+	}
+}
