@@ -10,50 +10,40 @@ export default {
   plugins: [
     plugin(({ theme, addComponents, matchComponents }) => {
       addComponents({
-        '.test-add1': typed({
+        '.test-add': typed({
           display: 'block',
 
+          // camelCase enabled
           marginTop: '20px',
-        }),
 
-        '.test-add2': typed({
-          backgroundColor: 'red',
+          // kebab-case enabled
+          'margin-top': '20px',
 
-          ':hover': {
-            backgroundColor: 'white',
-          }
-        }),
+          backgroundColor: 'red'
+        })
       })
 
       matchComponents(
         {
-          'test-match1': value => typed({
-            marginTop: value
+          'test-match': value => typed({
+            display: 'block',
+
+            // camelCase enabled
+            marginTop: value,
+
+            // kebab-case enabled
+            'margin-top': value,
+
+            color: 'blue',
+
+            ':hover': {
+              color: 'green'
+            }
           }),
-
-          'test-match2': value =>
-            [
-              typed({
-                display: 'block',
-
-                // camelCase enabled
-                marginTop: value,
-
-                // kebab-case enabled
-                'margin-top': value,
-
-                color: 'blue'
-              }),
-              typed({
-                ':hover': {
-                  color: 'green'
-                }
-              })
-            ]
         },
         { values: theme('space') }
       )
     })
-  ],
+  ]
 }
 
