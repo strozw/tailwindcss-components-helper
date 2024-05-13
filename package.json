@@ -18,8 +18,8 @@
 		"build": "tsup src/index.ts --dts --format esm,cjs"
 	},
 	"keywords": ["tailwindcss", "plugin", "component", "types"],
-	"author": "",
-	"license": "ISC",
+	"author": "strozw",
+	"license": "MIT",
 	"devDependencies": {
 		"@biomejs/biome": "^1.7.3",
 		"@tsconfig/recommended": "^1.0.6",
