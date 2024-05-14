@@ -17,7 +17,7 @@
     }
   },
   "scripts": {
-    "test": "",
+    "test": "pnpm vitest run ./src",
     "check": "tsc --noEmit",
     "fix": "pnpm biome format --write .",
     "build": "tsup src/index.ts --dts --format esm,cjs"
@@ -29,8 +29,10 @@
     "@biomejs/biome": "^1.7.3",
     "@tsconfig/recommended": "^1.0.6",
     "lefthook": "^1.6.10",
+    "ts-node": "^10.9.2",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
   },
   "peerDependencies": {
     "tailwindcss": "^3"

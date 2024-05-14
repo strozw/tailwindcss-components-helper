@@ -29,45 +29,41 @@ If you use it in a `"type": "module"` project, it will look like this:
 
 ```ts
 import plugin from 'tailwindcss/plugin'
-import { defineComponent as typed } from 'tailwindcss-components-helper'
+import { css } from 'tailwindcss-components-helper'
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/App.tsx",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ], 
-  theme: { 
-    extend: {}, 
-  },
   plugins: [
     plugin(({ theme, addComponents, matchComponents }) => {
       addComponents({
-        '.test-add': typed({
+        '.test-add': css({
           display: 'block',
-
-          // camelCase enabled
           marginTop: '20px',
-
-          // kebab-case enabled
           'margin-top': '20px',
+          backgroundColor: 'red',
 
-          backgroundColor: 'red'
+          '&:hover': {
+            backgroundColor: "white",
+            animation: 'my-anim infinite 20s linear',
+
+            '@keyframes my-anim': {
+              '0%': {
+                transform: 'rotate(0deg)',
+              },
+              '100%': {
+                transform: 'rotate(360deg)',
+              },
+            }
+          }
         })
       })
 
       matchComponents(
         {
-          'test-match': value => typed({
+          'test-match': value => css({
             display: 'block',
-
-            // camelCase enabled
             marginTop: value,
-
-            // kebab-case enabled
             'margin-top': value,
-
             color: 'blue',
 
             ':hover': {
