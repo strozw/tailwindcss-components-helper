@@ -1,7 +1,7 @@
 
 # tailwind components helper
 
-## about
+## About
 
 This package was created to improve the development experience by enabling code completion when defining styles such as Emotion and Styled Components using `addComponents` and `matchComponents`, which are used when creating tailwindcss plugins. 
 
@@ -22,7 +22,7 @@ yarn add -D tailwindcss-components-helper
 pnpm add -D tailwindcss-components-helper
 ```
 
-## usages
+## Usages
 
 If you use it in a `"type": "module"` project, it will look like this:
 
